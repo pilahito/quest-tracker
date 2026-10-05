@@ -1,0 +1,25 @@
+# Dependencies / Dependencias
+node_modules/
+
+# Build output / Salida de compilación
+dist/
+build/
+
+# Logs / Registros
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# Editor / Editor
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env / Entorno
+.env
+.env.local

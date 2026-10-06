@@ -58,7 +58,55 @@ You need to build Vencord from source.
 
 ---
 
-## Instalación / Installation
+## Instalación rápida / Quick install
+
+### Opción 1: script de instalación automática / One-command install
+
+En macOS/Linux:
+
+```bash
+./scripts/install-vencord-plugin.sh --vencord-dir ../Vencord --build
+```
+
+En Windows PowerShell:
+
+```powershell
+./scripts/install-vencord-plugin.ps1 -VencordDir ..\Vencord -Build
+```
+
+Esto copia los archivos del plugin a la carpeta correcta dentro de Vencord:
+
+```text
+src/userplugins/questTracker/
+```
+
+y, si usas `--build` / `-Build`, también ejecuta:
+
+```bash
+pnpm install --frozen-lockfile
+pnpm build
+pnpm inject
+```
+
+### Opción 2: paquete ZIP / ZIP package
+
+Genera un paquete listo para compartir o guardar:
+
+```bash
+./scripts/package-plugin.sh
+```
+
+Esto crea:
+
+```text
+dist/quest-tracker.zip
+```
+
+El ZIP contiene el plugin y la documentación básica. No es una extensión de navegador, porque Vencord no carga extensiones web; carga plugins compilados desde el código fuente.
+
+---
+
+## Instalación manual / Manual installation
 
 ### 1. Compila Vencord desde fuente / Build Vencord from source
 
@@ -138,6 +186,10 @@ quest-tracker/
 │   ├── index.tsx     # punto de entrada / entry point
 │   ├── quests.ts     # lectura del store / store reading
 │   └── i18n.ts       # textos es/en / es/en strings
+├── scripts/
+│   ├── install-vencord-plugin.sh
+│   ├── install-vencord-plugin.ps1
+│   └── package-plugin.sh
 ├── LICENSE
 ├── README.md
 └── .gitignore
@@ -190,3 +242,4 @@ or detection evasion will be rejected.
 ## Licencia / License
 
 GPL-3.0-or-later, igual que Vencord / same as Vencord. Ver [`LICENSE`](./LICENSE).
+

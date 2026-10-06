@@ -1,3 +1,4 @@
+#!/usr/bin/env pwsh
 param(
     [string]$VencordDir = "",
     [string]$PluginDirName = "questTracker",
@@ -13,7 +14,7 @@ if (-not $VencordDir) {
 }
 
 if (-not (Test-Path $VencordDir)) {
-    Write-Error "Vencord directory not found: $VencordDir`nClone it first:`n  git clone https://github.com/Vendicated/Vencord `"$VencordDir`""
+    Write-Error "Vencord directory not found: $VencordDir`nClone it first: git clone https://github.com/Vendicated/Vencord `"$VencordDir`""
     exit 1
 }
 
@@ -21,16 +22,12 @@ $dest = Join-Path $VencordDir "src\userplugins\$PluginDirName"
 New-Item -ItemType Directory -Force -Path $dest | Out-Null
 
 foreach ($file in @("index.tsx", "quests.ts", "i18n.ts")) {
-    $source = Join-Path $repoRoot "src\$file"
-    if (-not (Test-Path $source)) {
-        throw "Missing source file: $source"
-    }
-    Copy-Item $source (Join-Path $dest $file) -Force
+    Copy-Item (Join-Path $repoRoot "src\$file") (Join-Path $dest $file) -Force
 }
 
 Write-Host "QuestTracker copied to: $dest"
 Write-Host "Important:"
-Write-Host "  - The folder name must be camelCase (example: questTracker)"
+Write-Host "  - The folder name must be camelCase (for example: questTracker)"
 Write-Host "  - Vencord must be built from source"
 Write-Host "  - This plugin is read-only and does not automate Discord activity"
 
@@ -45,5 +42,5 @@ if ($Build) {
     finally {
         Pop-Location
     }
-    Write-Host "Done. Restart Discord and open Settings -> Vencord -> Plugins."
+    Write-Host "Done. Restart Discord and open Settings → Vencord → Plugins."
 }

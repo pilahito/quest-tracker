@@ -1,5 +1,5 @@
 /*
- * Vencord, a Discord client mod
+ * QuestTracker by pilahito
  * QuestTracker — bilingual strings / textos bilingües
  * SPDX-License-Identifier: GPL-3.0-or-later
  */

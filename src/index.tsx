@@ -1,12 +1,11 @@
 /*
- * Vencord, a Discord client mod
+ * QuestTracker by pilahito
  * QuestTracker — read-only Quest tracker / Rastreador de Quests (solo lectura)
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
 import { definePluginSettings } from "@api/Settings";
 import { DataStore } from "@api/index";
-import { Devs } from "@utils/constants";
 import definePlugin, { OptionType } from "@utils/types";
 import { findByPropsLazy } from "@webpack";
 import { FluxDispatcher, UserStore } from "@webpack/common";
@@ -161,7 +160,7 @@ export default definePlugin({
     description:
         "Read-only Discord quest tracker: detects new quests and warns before they expire. " +
         "Rastreador de quests de solo lectura: detecta quests nuevas y avisa antes de que expiren.",
-    authors: [Devs.Ven],
+    authors: [{ name: "pilahito", id: 0n }],
 
     settings,
 

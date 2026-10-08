@@ -146,19 +146,21 @@ Restart Discord. The plugin shows up under **Settings → Vencord → Plugins** 
 
 ### 4. Personaliza el autor / Customize the author
 
-Sustituye el autor por defecto:
+El autor del plugin es **pilahito**:
+
+The plugin author is **pilahito**:
 
 ```ts
-authors: [Devs.Ven],
+authors: [{ name: "pilahito", id: 0n }],
 ```
 
-por tu entrada en `src/utils/constants.ts`, o por un objeto literal:
+Para cambiarlo, edita esa línea en `src/index.tsx` con tu nombre. El campo `id` es tu
+ID de usuario de Discord (opcional; `0n` si no quieres ponerlo; el `n` final es obligatorio).
+No hace falta tocar `src/utils/constants.ts` de Vencord.
 
-Replace the default author with your entry in `src/utils/constants.ts`, or a plain object:
-
-```ts
-authors: [{ name: "Tu nombre", id: 0n }],
-```
+To change it, edit that line in `src/index.tsx` with your name. The `id` field is your
+Discord user ID (optional; use `0n` to leave it out; the trailing `n` is required).
+You don't need to edit Vencord's `src/utils/constants.ts`.
 
 ---
 
